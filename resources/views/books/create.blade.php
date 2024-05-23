@@ -29,7 +29,11 @@
                     @error('name')
                         {{$message}}
                     @enderror
-
+                    
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="image" value="" name="image" type="file">
+                    </div>
+                    
                     <div class="d-grid">
                         <button class="btn btn-primary btn-lg" type="submit">Salva</button>
                     </div>

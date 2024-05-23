@@ -26,6 +26,7 @@ class BookCreateRequest extends FormRequest
             'name' => 'required',
             'years' => 'nullable|integer',
             'pages' => 'integer|nullable',
+            'image' => 'nullable|mimes:png,jpg|size:2048'
         ];
     }
     

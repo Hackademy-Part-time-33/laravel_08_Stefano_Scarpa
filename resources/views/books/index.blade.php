@@ -37,7 +37,7 @@
                         <th scope="row">#{{ $book->id }}</th>
                         <td>
                             <img class="card-img-top" style="width:3rem"
-                                src="https://images.freeimages.com/images/large-previews/83c/barn-silo-detail-5-1210478.jpg"
+                                src="{{ Storage::url($book->image) }}"
                                 alt="..." />
                         </td>
                         <td>{{ $book->name }}</td>
@@ -64,6 +64,8 @@
 
                 </tbody>
             </table>
+            {{ $books->links() }}
+
         </div>
     </div>
 

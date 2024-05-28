@@ -46,13 +46,16 @@
                         </div>
                         <div
                             class="col-4 d-flex justify-content-end align-items-center">
-                            <a class="btn btn-sm btn-outline-secondary mx-2"
-                                href=" {{ route('register') }}">Registrati</a>
-                            <a class="btn btn-sm btn-outline-secondary mx-2"
-                                href="{{ route('login') }}">Entra</a>
-                            <span>Benvenuto, Tizio</span>
-                            <a class="btn btn-sm btn-outline-secondary mx-2"
-                                href="#">Logout</a>
+                            @guest    
+                            <a class="btn btn-sm btn-outline-secondary mx-2" href=" {{ route('register') }}">Registrati</a>
+                            <a class="btn btn-sm btn-outline-secondary mx-2" href="{{ route('login') }}">Entra</a>
+                            @else
+                            <span>Benvenuto, {{Auth::user()->name}}</span>
+                            <form action="{{route('logout')}}" method="POST">
+                                @csrf
+                                <button type="submit" class="btn btn-sm btn-outline-secondary mx-2">Logout</button>
+                            </form>
+                            @endguest
                         </div>
                     </div>
                 </header>

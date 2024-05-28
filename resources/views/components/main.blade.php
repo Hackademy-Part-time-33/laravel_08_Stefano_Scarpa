@@ -47,9 +47,9 @@
                         <div
                             class="col-4 d-flex justify-content-end align-items-center">
                             <a class="btn btn-sm btn-outline-secondary mx-2"
-                                href="#">Registrati</a>
+                                href=" {{ route('register') }}">Registrati</a>
                             <a class="btn btn-sm btn-outline-secondary mx-2"
-                                href="#">Entra</a>
+                                href="{{ route('login') }}">Entra</a>
                             <span>Benvenuto, Tizio</span>
                             <a class="btn btn-sm btn-outline-secondary mx-2"
                                 href="#">Logout</a>

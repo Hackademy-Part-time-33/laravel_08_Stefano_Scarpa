@@ -1,11 +1,14 @@
 <x-main>
 
     <div class="rounded-3 py-5 px-4 px-md-5 mb-5">
-        <div class="text-center">
-            @if (@session('success'))
+        <div class="container">
+            @if (session('success'))
+            <div class="alert alert-success text-center">
                 {{ session('success') }}
-            @endsession
+            </div>
+            @endif          
         </div>
+       
         <div class="container mt-5">
             <div
                 class="align-middle gap-2 d-flex justify-content-between">
@@ -42,20 +45,23 @@
                         </td>
                         <td>{{ $book->name }}</td>
                         <td>
-
+                            @auth
                             <div
                                 class="d-grid gap-2 d-md-flex justify-content-md-end">
 
+                                <a href="{{ route('books.edit', ['book' => $book->id]) }}" class="btn btn-primary me-md-2">
+                                    Modifica
+                                </a>
                                 <a href="{{ route('books.show', ['book' => $book]) }}" class="btn btn-primary me-md-2">
                                     Visualizza
                                 </a>
-                                {{-- <a href="#" class="btn btn-warning me-md-2">
-                                    Modifica
-                                </a>
-                                <button type="button" class="btn btn-danger me-md-2">
-                                    Elimina
-                                </button> --}}
+                                <form action="{{ route('books.destroy', ['book' => $book->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger me-md-2">Elimina</button>
+                                </form>
                             </div>
+                            @endauth
                         </td>
                     </tr>
                     @empty
